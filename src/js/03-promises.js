@@ -10,11 +10,15 @@ function onNewForm(elem){
 
 for (let position = 1; position <= amount; position += 1) {
   createPromise(position, delay)
-  .then(({ position, delay }) => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    .then(({ position, delay }) => {
+    setTimeout(() => {
+      console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      }, delay)
   })
-  .catch(({ position, delay }) => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+    .catch(({ position, delay }) => {
+    setTimeout(() => {
+      console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+      }, delay)
   });
 delay += step;
 }
